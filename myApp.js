@@ -1,5 +1,5 @@
-import { express } from "express";
-var app = express();
+import Express from "express";
+var app = Express();
 
 function home(req, res) {
   var absolutePath = __dirname + "/views/index.html";
