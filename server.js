@@ -6,7 +6,9 @@
 'use strict';
 
 var fs = require('fs');
+var bGround = require("fcc-express-bground");
 var express = require('express');
+var myApp = require("./myApp");
 var app = express();
 
 if (!process.env.DISABLE_XORIGIN) {
@@ -56,5 +58,8 @@ app.use(function(err, req, res, next) {
 //Listen on port set in environment variable or default to 3000
 const listener = app.listen(process.env.PORT || 3000, function () {
   console.log("Node.js listening on port " + listener.address().port);
+});
+bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function () {
+  bGround.log("Node is listening on port " + port + "...");
 });
 
