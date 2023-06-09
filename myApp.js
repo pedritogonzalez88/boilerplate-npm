@@ -1,4 +1,4 @@
-var express = require("express");
+import { Express } from "express";
 var app = express();
 
 function home(req, res) {
